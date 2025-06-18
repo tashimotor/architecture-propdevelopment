@@ -1,0 +1,28 @@
+# Analyst -> Viewer
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: analyst-viewer-binding
+subjects:
+  - kind: User
+    name: analyst
+    apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: viewer
+  apiGroup: rbac.authorization.k8s.io
+
+---
+# Developer -> Editor
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: dev-editor-binding
+subjects:
+  - kind: User
+    name: developer
+    apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: editor
+  apiGroup: rbac.authorization.k8s.io
